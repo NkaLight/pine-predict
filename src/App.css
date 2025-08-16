@@ -5,22 +5,25 @@
 }
 nav{
   display: flex;
-  padding: 2em;
+  padding: 4em;
+  padding-top:3em;
+  padding-bottom:0.5em;
 }
 .nav-icon{
-  width: 3rem;
+  width: 5rem;
   height: min-content;
+  align-self: center;
+  padding-right:1em;
+
 }
 .nav-title-section{
   display: flex;
-  padding-left:1em;
+  padding-left: 2em;
 }
 
-.nav-title-section > *{
-  padding-left:1em;
-}
+
 .nav-title{
-  font-size: 48px;
+  font-size: 40px;
   color: white;
   width: fit-content;
 }
@@ -41,8 +44,61 @@ nav{
 
 
 /* Landing Page Masthead section */
-.masthead-image{
-  filter: opacity(0.6);
-  border-radius: 1em;
+.masthead-section {
+  display: grid;
+  place-items: center;      /* centers content horizontally and vertically */
+  width: 100%;
+  min-height: 200px;        /* adjusts height based on content or viewport */
+  position: relative;
+  overflow: hidden;         /* ensures no overflow from image */
+}
 
+.masthead-image {
+  grid-area: 1 / 1 / 2 / 2;  /* spans entire grid cell */
+  width: 95%;
+  height: 80%;
+  object-fit: cover;         /* scales image to cover container */
+  border-radius: 1em;
+  filter: opacity(0.6);
+}
+
+.masthead-txt {
+  grid-area: 1 / 1 / 2 / 2;  /* overlays same cell as image */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: clamp(1rem, 2.5vw, 3rem);  /* responsive font size */
+}
+
+.report-cards-section{
+ display: flex;
+ justify-content: center;
+ padding:1em;
+}
+
+.card-item{
+  display: flex;
+  background-color: lightgray;
+  margin-left: 2em;
+  padding:1em;
+  width:15em;
+  height: 5em;
+  border-radius: 10px;
+}
+.card-item >img{
+  width:4em;
+}
+.card-item >div{
+  margin-left: auto;
+  margin-right: 2em;
+  margin-top:0px;
+  padding:0px;
+}
+.num-val{
+  font-size: 32px;
+}
+.text-val{
+  margin-bottom: 0px;
+  padding-bottom:0px;
+  margin-top: 1rem;
 }
