@@ -1,38 +1,48 @@
 .App {
   text-align: center;
+  background-color: #146152;
+  height: 100vmin
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2em;
+}
+.nav-icon{
+  width: 3rem;
+  height: min-content;
+}
+.nav-title-section{
+  display: flex;
+  padding-left:1em;
+}
+
+.nav-title-section > *{
+  padding-left:1em;
+}
+.nav-title{
+  font-size: 48px;
   color: white;
+  width: fit-content;
+}
+.nav-links-section{
+  margin-left:auto;
+  align-self: center;
+}
+.nav-links-section > *{
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.7);
+  padding-left:1em;
+  align-items: center;
+}
+.nav-links-section > *:hover{
+  color:rgb(255, 255, 255);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Landing Page Masthead section */
+.masthead-image{
+  filter: opacity(0.6);
+  border-radius: 1em;
+
 }
