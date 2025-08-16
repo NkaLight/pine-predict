@@ -1,13 +1,16 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #146152;
-  height: 100vmin
+  height: 100%;
+  padding-bottom:4em;
 }
 nav{
   display: flex;
-  padding: 4em;
+  padding-left: 2em;
+  padding-right:2em;
   padding-top:3em;
-  padding-bottom:0.5em;
 }
 .nav-icon{
   width: 5rem;
@@ -55,7 +58,7 @@ nav{
 
 .masthead-image {
   grid-area: 1 / 1 / 2 / 2;  /* spans entire grid cell */
-  width: 95%;
+  width: 80%;
   height: 80%;
   object-fit: cover;         /* scales image to cover container */
   border-radius: 1em;
@@ -101,4 +104,82 @@ nav{
   margin-bottom: 0px;
   padding-bottom:0px;
   margin-top: 1rem;
+}
+.dashboard-nav{
+  display:flex;
+  justify-content: center;
+}
+.landing-nav{
+  display:flex;
+  margin: 1.5em auto;
+  width:40%;
+  border-radius: 1em;
+  justify-self: center;
+  justify-content: center;
+  justify-content: space-between;
+  background-color: #44803F;
+}
+
+.landing-nav >*>img{
+  width:2em;
+}
+/* #background-color: #B4CF66; */
+.landing-nav-item-active{
+  display: flex;
+  background-color: #B4CF66;
+  justify-content: center;
+  border:none;
+  border-radius: 1em;
+  width:9em;
+  padding-left:1em;
+  padding-right: 1em;
+  font-size: 1em;
+  color: white;
+}
+.landing-nav-item-none{
+  display: flex;
+  background-color: #44803F;
+  justify-content: center;
+  border:none;
+  border-radius: 1em;
+  padding-left:1em;
+  padding-right: 1em;
+  width:9em;
+  font-size: 1em;
+  color: white;
+}
+.nav-btn{
+  background-color: inherit;
+  border: none;
+  color:white;
+}
+
+.dashboard-nav{
+  display:flex;
+  margin: 2em auto;
+  width:60%;
+  border-radius: 1em;
+  justify-self: center;
+  justify-content: center;
+  justify-content: space-between;
+  background-color: #b2b0b0;
+}
+.dashboard-nav >button{
+  border-radius: 1em;
+  border:none;
+  padding:0.5em;
+}
+.dashboard-nav-active{
+  border-radius: 1em;
+  border:none;
+  padding:0.5em;
+  width:15em;
+  background-color: white;
+}
+.dashboard-nav-none{
+  border-radius: 1em;
+  border:none;
+  padding:0.5em;
+  width: 15em;
+  background-color: inherit;
 }

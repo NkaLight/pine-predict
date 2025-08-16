@@ -1,49 +1,57 @@
-import react from "react";
+import { useState } from "react";
 import MastHeadImg from "../icons/Masthead.png"
-import Card1 from "../icons/cardIcon1.svg"
-import Card2 from "../icons/cardIcon2.svg"
-import Card3 from "../icons/CardIcon3.svg"
-import Card4 from "../icons/CardIcon4.svg"
+import Dashboard from "../Component/Dashboard/Dashboard";
+import BarChart from "../icons/Bar chart-2.svg"
+import CameraIcon from "../icons/Camera.svg"
+import Map from "../icons/Map.svg"
+import InteractiveMap from "../Component/InteractiveMap";
+import saplingData from "../data/Wilding_Conifer_Survey_Areas_1998-2003.geojson"
 import "../App.css"
 
 function Landing(){
+    const [activeComponent, setActiveComponent] = useState("map");
     return(
+        <>
         <header>
             <masthead className="masthead-section">
                 <div className="masthead-txt">Invasive Pine Species Tracker</div>
                 <img src={MastHeadImg} alt="Masthead icon" srcset="" className="masthead-image" />
             </masthead>
-            <div className="report-cards-section">
-                <div className="card-item">
-                    <img src={Card1} alt="" srcset="" />
-                    <div>
-                        <div className="num-val">1005</div>
-                        <div className="text-val">Total Saplings</div>
-                    </div>
-                </div>
-                <div className="card-item">
-                    <img src={Card2} alt="" srcset="" />
-                    <div>
-                        <div className="num-val">857</div>
-                        <div className="text-val">Verified</div>
-                    </div>
-                </div>
-                <div className="card-item">
-                    <img src={Card3} alt="" srcset="" />
-                    <div>
-                        <div className="num-val">547</div>
-                        <div className="text-val">Contributors</div>
-                    </div>
-                </div>
-                <div className="card-item">
-                    <img src={Card4} alt="" srcset="" />
-                    <div>
-                        <div className="num-val">2</div>
-                        <div className="text-val">High Threats Areas</div>
-                    </div>
-                </div>
-            </div>
         </header>
+      {/* Top-level Nav */}
+      <div className="landing-nav">
+        <div className={activeComponent === "dashboard" ? "landing-nav-item-active":"landing-nav-item-none"}>
+            <img src={BarChart} alt="" srcset="" />
+            <button onClick={() => setActiveComponent("dashboard")} className="nav-btn">Dashboard</button>
+        </div>
+        <div className={activeComponent === "map" ? "landing-nav-item-active":"landing-nav-item-none"}>
+            <img src={Map} alt="" srcset="" />
+            <button onClick={() => setActiveComponent("map")} className="nav-btn">Interactive Map</button>
+        </div>
+        <div className={activeComponent === "upload" ? "landing-nav-item-active":"landing-nav-item-none"}>
+            <img src={CameraIcon} alt="" srcset="" />
+            <button onClick={() => setActiveComponent("upload")} className="nav-btn">Upload Image</button>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="main-section">
+                {activeComponent === "dashboard" && <Dashboard />}
+        <div
+            style={{
+            visibility: activeComponent === "map" ? "visible" : "hidden",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            }}
+        >
+            <InteractiveMap geojsonData={saplingData}/>
+        </div>
+        {/* {activeComponent === "upload" && <UploadImage />} */}
+      </div>
+    </>
     )
 }
-export default Landing
+export default Landing;
